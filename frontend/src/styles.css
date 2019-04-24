@@ -3,9 +3,10 @@
 /*
 Color Samples:
 
+gray: #4a4e4d;
+green: #69c64d;
 yellow: #f6cd61;
 red: #fe8a71;
-gray: #4a4e4d;
 $blue: #3da4ab;
 */
 
@@ -14,4 +15,18 @@ $blue: #3da4ab;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-container {
+	max-width: 1140px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+	list-style-image: none;
 }
