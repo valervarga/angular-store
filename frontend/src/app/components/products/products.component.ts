@@ -25,4 +25,14 @@ export class ProductsComponent implements OnInit {
     // Remove product from DB
     this.productService.removeOne(product).subscribe();
   }
+
+  createProduct(product: Product) {
+    // Create product and add to DB
+    this.productService.createOne(product).subscribe((newProduct: any) => {
+      if (!newProduct && !newProduct.data) return;
+
+      // Update UI with new product
+      this.products.push(newProduct.data);
+    });
+  }
 }

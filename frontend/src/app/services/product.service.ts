@@ -22,9 +22,13 @@ export class ProductService {
   getAll():Observable<ProductData> {
     return this.http.get<ProductData>(`${config.BASE_API}/products`);
   }
-
+  
   removeOne(product):Observable<Product> {
     const url = `${config.BASE_API}/products/${product._id}/remove`;
     return this.http.delete<Product>(url, httpOptions);
+  }
+  
+  createOne(product):Observable<Product> {
+    return this.http.post<Product>(`${config.BASE_API}/products`, product, httpOptions);
   }
 }

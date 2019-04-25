@@ -1,7 +1,11 @@
-<ul class="product__list">
-  <app-product-item
-    *ngFor="let product of products"
-    [product]="product"
-    (removeProduct)="removeProduct($event)"
-  ></app-product-item>
-</ul>
+<div>
+  <app-create-product (createProduct)="createProduct($event)"></app-create-product>
+
+  <ul class="product__list">
+    <app-product-item
+      *ngFor="let product of products"
+      [product]="product"
+      (removeProduct)="removeProduct($event)"
+    ></app-product-item>
+  </ul>
+</div>
