@@ -1,0 +1,5 @@
+# dependencies
+/node_modules
+
+# VSCode REST Client (by Huachao Mao) extension
+*.http
