@@ -30,6 +30,23 @@ const ProductController = {
       }));
   },
 
+  createOne(req, res) {
+    ProductService.createOne({
+      title: req.body.title,
+      description: req.body.description,
+      available: req.body.available,
+      price: req.body.price
+    })
+      .then(product => res.json({
+        success: true,
+        data: product
+      }))
+      .catch(error => res.json({
+        success: false,
+        message: error
+      }));
+  },
+
   removeOne(req, res) {
     ProductService.removeOne(req.params.id)
       .then(() => res.json({
