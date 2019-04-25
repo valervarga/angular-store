@@ -1,3 +1,8 @@
+/**
+ * @file Basic database setup
+ * @author Valer Varga
+ */
+
 const mongoose = require('mongoose');
 
 const MongoDB = {

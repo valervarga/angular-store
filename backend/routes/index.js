@@ -1,1 +1,1 @@
-module.exports = require('./products');
+module.exports = require('./product');

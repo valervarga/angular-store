@@ -1,3 +1,8 @@
+/**
+ * @file Defines a schema for the product collection.
+ * @author Valer Varga
+ */
+
 const mongoose = require('mongoose');
 
 // SCHEMA SETUP - APP CONFIG
