@@ -10,4 +10,8 @@
     </div>
     <p class="product__item-description">{{ product.description }}</p>
   </div>
+  <div class="product__item-footer">
+    <button type="button" class="product__item-button product__item-button--edit">Edit Product</button>
+    <button type="button" class="product__item-button product__item-button--remove" (click)="onDelete(product)">Remove Product</button>
+  </div>
 </li>

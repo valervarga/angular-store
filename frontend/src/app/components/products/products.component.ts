@@ -9,14 +9,20 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products:Product[];
+  products: Product[];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.productService.getAll().subscribe((result: ProductData) => {
-      const products = result && result.data;
-      this.products = products;
+      this.products = result && result.data ? result.data : this.products;
     });
+  }
+
+  removeProduct(product: Product) {
+    // Remove product from UI
+    this.products = this.products.filter(filteredProduct => filteredProduct._id !== product._id);
+    // Remove product from DB
+    this.productService.removeOne(product).subscribe();
   }
 }

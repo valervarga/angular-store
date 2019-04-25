@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductData } from '../interfaces/Product';
+import { Product } from '../models/Product';
 
 import config from '../../build.config';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +21,10 @@ export class ProductService {
 
   getAll():Observable<ProductData> {
     return this.http.get<ProductData>(`${config.BASE_API}/products`);
+  }
+
+  removeOne(product):Observable<Product> {
+    const url = `${config.BASE_API}/products/${product._id}/remove`;
+    return this.http.delete<Product>(url, httpOptions);
   }
 }

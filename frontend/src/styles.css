@@ -17,6 +17,10 @@ $blue: #3da4ab;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+	padding-top: 73px;
+}
+
 .app-container {
 	max-width: 1140px;
 	width: 100%;

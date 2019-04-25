@@ -16,6 +16,29 @@ const ProductController = {
         success: false,
         message: error
       }));
+  },
+
+  getOne(req, res) {
+    ProductService.getOne(req.params.id)
+      .then(product => res.json({
+        success: true,
+        data: product
+      }))
+      .catch(error => res.json({
+        success: false,
+        message: error
+      }));
+  },
+
+  removeOne(req, res) {
+    ProductService.removeOne(req.params.id)
+      .then(() => res.json({
+        success: true
+      }))
+      .catch(error => res.json({
+        success: false,
+        message: error
+      }));
   }
 };
 
