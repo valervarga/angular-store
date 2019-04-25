@@ -4,10 +4,11 @@
  */
 
 const mongoose = require('mongoose');
+const config = require('./build.config');
 
 const MongoDB = {
 	connect() {
-		mongoose.connect('mongodb://localhost/store', {useNewUrlParser: true})
+		mongoose.connect(config.DATABSE_URL, {useNewUrlParser: true})
 		.then((res) => {
 			console.log('Database connection is successful');
 		}, err => {

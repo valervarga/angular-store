@@ -9,10 +9,12 @@ const cors = require('cors');
 const MongoDB = require('./mongodb');
 // Require routes
 const routes = require('./routes');
+// Config File
+const config = require('./build.config');
 
 const server = express();
 // Create default port
-const PORT = process.env.PORT || 3000;
+const PORT = config.PORT;
 // Connect to database
 MongoDB.connect();
 MongoDB.debug(true);
