@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
-import { CreateProductComponent } from './components/create-product/create-product.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { TreatAsNumberDirective } from './components/product-form/treat-as-number.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateProductComponent } from './components/create-product/create-produ
     HeaderComponent,
     ProductsComponent,
     ProductItemComponent,
-    CreateProductComponent
+    ProductFormComponent,
+    TreatAsNumberDirective
   ],
   imports: [
     BrowserModule,

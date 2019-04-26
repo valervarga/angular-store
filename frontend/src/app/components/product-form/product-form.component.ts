@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-create-product',
-  templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.css']
+  selector: 'app-product-form',
+  templateUrl: './product-form.component.html',
+  styleUrls: ['./product-form.component.css']
 })
-export class CreateProductComponent implements OnInit {
+export class ProductFormComponent implements OnInit {
   @Output() createProduct: EventEmitter<any> = new EventEmitter;
 
   productTitle: string;
@@ -14,6 +14,7 @@ export class CreateProductComponent implements OnInit {
   productDescription: string;
 
   productForm: HTMLFormElement;
+  productPriceInput: HTMLElement;
 
   constructor() { }
 
