@@ -9,7 +9,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
-import { TreatAsNumberDirective } from './components/product-form/treat-as-number.directive';
+import { TreatAsNumberDirective } from './directives/treat-as-number.directive';
+import { ProductFormEditComponent } from './components/product-form-edit/product-form-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TreatAsNumberDirective } from './components/product-form/treat-as-numbe
     ProductsComponent,
     ProductItemComponent,
     ProductFormComponent,
-    TreatAsNumberDirective
+    TreatAsNumberDirective,
+    ProductFormEditComponent
   ],
   imports: [
     BrowserModule,

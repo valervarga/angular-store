@@ -1,6 +1,28 @@
+.form--edit-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 78, 77, 0.6);
+}
+
+.form--edit-visible {
+  display: block;
+}
+
 .form {
-  margin-top: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
   padding: 20px 16px;
+  background-color: #fff;
   border: 2px solid #4a4e4d;
   border-radius: 10px;
 }
@@ -28,9 +50,8 @@
 }
 
 .form__button {
-  display: block;
+  float: right;
   max-width: 240px;
-  margin-left: auto;
   padding: 10px 20px;
   background-color: #3da4ab;
   border: 0;
@@ -45,6 +66,18 @@
 
 .form__button:hover {
   background-color: #33848a;
+}
+
+.form__button:not(:last-child) {
+  margin-left: 20px;
+}
+
+.form__button--cancle {
+  background-color: #fe8a71;
+}
+
+.form__button--cancle:hover {
+  background-color: #d45f45;
 }
 
 .form-field .form__checkbox-switch {

@@ -6,6 +6,25 @@
 const ProductService = require('../services/ProductServices');
 
 const ProductController = {
+  // CREATE
+  createOne(req, res) {
+    ProductService.createOne({
+      title: req.body.title,
+      description: req.body.description,
+      available: req.body.available,
+      price: req.body.price
+    })
+      .then(product => res.json({
+        success: true,
+        data: product
+      }))
+      .catch(error => res.json({
+        success: false,
+        message: error
+      }));
+  },
+
+  // READ
   getAll(req, res) {
     ProductService.getAll()
       .then(products => res.json({
@@ -30,13 +49,10 @@ const ProductController = {
       }));
   },
 
-  createOne(req, res) {
-    ProductService.createOne({
-      title: req.body.title,
-      description: req.body.description,
-      available: req.body.available,
-      price: req.body.price
-    })
+
+  // UPDATE
+  updateOne(req, res) {
+    ProductService.updateOne({...req.body}, req.params.id)
       .then(product => res.json({
         success: true,
         data: product
@@ -47,6 +63,7 @@ const ProductController = {
       }));
   },
 
+  // DELETE
   removeOne(req, res) {
     ProductService.removeOne(req.params.id)
       .then(() => res.json({

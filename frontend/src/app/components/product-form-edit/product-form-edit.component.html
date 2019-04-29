@@ -1,0 +1,27 @@
+<div class="form--edit-container js-product-edit-form-container">
+  <form class="form form--edit js-product-edit-form" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="product-edit-title">Product Title:</label>
+      <input type="text" name="product-edit-title" id="product-edit-title" placeholder="Enter product name..." [(ngModel)]="productEditTitle">
+    </div>
+    <div class="form-field">
+      <label for="product-edit-price">Product Price:</label>
+      <input appTreatAsNumber type="text" name="product-edit-price" id="product-edit-price" placeholder="Enter product price..." [(ngModel)]="productEditPrice">
+    </div>
+    <div class="form-field">
+      <label for="product-edit-description">Product Description:</label>
+      <textarea name="product-edit-description" id="product-edit-description" rows="4" placeholder="Enter product description..." [(ngModel)]="productEditDescription"></textarea>
+    </div>
+    <div class="form-field">
+      <label class="form__checkbox-switch" for="product-edit-available">
+        Product availability
+        <input class="form__checkbox-input" type="checkbox" name="product-edit-available" id="product-edit-available" [(ngModel)]="productEditAvailable">
+        <span class="form__checkbox-slider"></span>
+      </label>
+    </div>
+    <div class="form-field">
+      <input id="product-edit-submit" class="form__button form__button--delete" type="submit" value="Update Product">
+      <button type="button" class="form__button form__button--cancle" (click)="closeForm()">Cancle</button>
+    </div>
+  </form>
+</div>

@@ -9,10 +9,23 @@ import { Product } from 'src/app/models/Product';
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() removeProduct: EventEmitter<Product> = new EventEmitter;
+  @Output() updateProduct: EventEmitter<Product> = new EventEmitter;
 
-  constructor() { }
+  activeForm: string = 'form--edit-visible';
+  formContainer: HTMLElement;
+  productTitle: HTMLInputElement;
+  productDescription: HTMLInputElement;
+  productAvailable: HTMLInputElement;
+  productPrice: HTMLInputElement;
+
+  constructor() {}
 
   ngOnInit() {
+    this.formContainer = document.querySelector('.js-product-edit-form-container');
+    this.productTitle = <HTMLInputElement>document.getElementById('product-edit-title');
+    this.productDescription = <HTMLInputElement>document.getElementById('product-edit-description');
+    this.productAvailable = <HTMLInputElement>document.getElementById('product-edit-available');
+    this.productPrice = <HTMLInputElement>document.getElementById('product-edit-price');
   }
 
   // Set Classes
@@ -23,6 +36,19 @@ export class ProductItemComponent implements OnInit {
     }
 
     return classes;
+  }
+
+  // Edit Product
+  onEdit(product: Product) {
+    // Populate Edit Form
+    this.productTitle.value = product.title;
+    this.productDescription.value = product.description;
+    this.productAvailable.checked = product.available;
+    this.productPrice.value = String(product.price);
+
+    // Show Edit Form
+    this.formContainer.classList.add(this.activeForm);
+    this.updateProduct.emit(product);
   }
 
   // Remove Product
