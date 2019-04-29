@@ -1,3 +1,8 @@
+/**
+ * @file Defines all directives.
+ * @author Valer Varga
+ */
+
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({

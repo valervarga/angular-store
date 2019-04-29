@@ -1,3 +1,9 @@
+
+/**
+ * @file Defines all product related services.
+ * @author Valer Varga
+ */
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
