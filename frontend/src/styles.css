@@ -61,6 +61,7 @@ li {
 }
 
 .form-field input[type='text'],
+.form-field input[type='email'],
 .form-field textarea {
   min-height: 40px;
   width: 100%;

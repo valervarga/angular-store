@@ -13,6 +13,7 @@ import { TreatAsNumberDirective } from './directives/treat-as-number.directive';
 import { ProductFormEditComponent } from './components/product-form-edit/product-form-edit.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './components/pages/login/login.component';
     TreatAsNumberDirective,
     ProductFormEditComponent,
     LandingComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

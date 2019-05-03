@@ -19,11 +19,11 @@ nvm use 10.13.0
 
 
 ## Project Installation
-Starting the command line from the root of the folder and enter the following commands.
+Start the command line from root of the folder and enter the following commands.
 
 ### Database
 Download and install MongoDB from their site: ```https://www.mongodb.com/download-center```
-For easier and faster use, you can add your installation ```path``` to ```system variables```. 
+For easier and faster use, you can add your installation ```path``` to ```system variables```
 * Start the MongoD server (if everything is installed correctly and after you restarted your operation system, the service should run automatically on startup, so you can skip this command)
 ```mongod```
 * Open the Mongo Shell

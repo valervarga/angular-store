@@ -1,0 +1,22 @@
+<h2>Register</h2>
+<form class="form form--register" (ngSubmit)="onRegister()">
+	<div class="form-field">
+		<label for="username">Username:</label>
+		<input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="username" required>
+	</div>
+	<div class="form-field">
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email" placeholder="Email Address" [(ngModel)]="email" required>
+	</div>
+	<div class="form-field">
+		<label for="password">Password:</label>
+		<input type="text" name="password" id="password" placeholder="Password" [(ngModel)]="password" required>
+	</div>
+	<div class="form-field">
+		<label for="confirm-password">Confirm Password:</label>
+		<input type="text" name="confirm-password" id="confirm-password" placeholder="Confirm Password" [(ngModel)]="confirm" required>
+	</div>
+	<div class="form-field">
+		<input class="form__button" type="submit" value="Register">
+	</div>
+</form>
