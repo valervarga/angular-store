@@ -1,4 +1,3 @@
-
 /**
  * @file Defines all product related services.
  * @author Valer Varga
