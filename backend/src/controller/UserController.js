@@ -8,15 +8,17 @@ const UserService = require('../services/UserServices');
 const UserController = {
 	// CREATE
 	createOne(req, res) {
-		UserService.createOne({
+		const userData = {
 			username: req.body.username ? req.body.username.trim() : '',
 			email: req.body.email ? req.body.email.trim() : '',
 			password: req.body.password ? req.body.password.trim() : '',
 			confirm: req.body.confirm ? req.body.confirm.trim() : ''
-		})
-			.then(user => res.json({
+		}
+
+		UserService.createOne(userData)
+			.then(message => res.json({
 				success: true,
-				data: user
+				message
 			}))
 			.catch(error => res.json({
 				success: false,
@@ -25,11 +27,18 @@ const UserController = {
 	},
 
 	// READ
-	getOne(req, res) {
-		UserService.getOne(req.params.id)
-			.then(user => res.json({
+	login(req, res) {
+		const userData = {
+			username: req.body.username,
+			password: req.body.password
+		};
+
+		console.log('user controller userdata', userData);
+
+		UserService.login(userData)
+			.then(token => res.json({
 				success: true,
-				data: user
+				token
 			}))
 			.catch(error => res.json({
 				success: false,

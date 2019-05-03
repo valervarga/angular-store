@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/Product';
 import { ProductData } from '../../interfaces/Product';
 import { ProductService } from '../../services/product.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -12,12 +14,19 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   editedProduct: Product;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit() {
-    this.productService.getAll().subscribe((result: ProductData) => {
-      this.products = result && result.data ? result.data : this.products;
-    });
+    this.productService.getAll().subscribe(
+			(result: ProductData) => this.products = result && result.data ? result.data : this.products,
+			(error: any) => {
+				if (error instanceof HttpErrorResponse) {
+					if (error.status === 401) {
+						this.router.navigate(['/login']);
+					}
+				}
+			}
+		);
   }
 
   // CREATE

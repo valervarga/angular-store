@@ -38,7 +38,7 @@ const UserService = {
 							const newUser = new User(user);
 		
 							newUser.save();
-							return resolve(newUser);
+							return resolve('User registered successfully');
 						})
 						.catch(error => reject(`User creation failed. Error: ${error}`))
 				})
@@ -47,11 +47,27 @@ const UserService = {
 	},
 
 	// READE
-	getOne(id) {
+	login(userData) {
 		return new Promise((resolve, reject) => {
-			User.findOne({ _id: id })
-				.then(data => resolve(data))
-				.catch(error => reject(`User cannot be found. Error: ${error}`))
+
+			User.findOne({ username: userData.username })
+				.then(user => {
+					if (!user) return reject('User cannot be found.')
+
+					const passwordMatch = bcrypt.compareSync(userData.password, user.password);
+					if (!passwordMatch) return reject('Password is not correct.');
+
+					const token = jwt.sign(
+						{token: user.refreshToken},
+						config.SECRET_KEY,
+						{expiresIn: '30s'}
+					);
+
+					user.token = token;
+
+					return resolve(token);
+				})
+				.catch(error => reject(`Authentication faild. User cannot be found. Error: ${error}`))
 		});
 	}
 }

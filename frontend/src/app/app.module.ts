@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,10 @@ import { ProductFormEditComponent } from './components/product-form-edit/product
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { ProductService } from './services/product.service';
+import { UserService } from './services/user.service';
+import { UserGuard } from './guard/user.guard';
+import { TokenService } from './inteceptor/token.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,16 @@ import { RegisterComponent } from './components/pages/register/register.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+		ProductService,
+		UserService,
+		UserGuard,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenService,
+			multi: true
+		}
+	],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

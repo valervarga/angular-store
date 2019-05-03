@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
 	productForm: HTMLFormElement;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
 		this.productForm = document.querySelector('.js-register-form');
@@ -34,8 +35,10 @@ export class RegisterComponent implements OnInit {
 		}
 
 		// Create user and add to DB
-		this.userService.createOne(newUser).subscribe();
-		this.productForm.reset();
+		this.userService.createOne(newUser).subscribe(() => {
+			this.router.navigate(['/login']);
+			this.productForm.reset();
+		});
 	}
 
 }

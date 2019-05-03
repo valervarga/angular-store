@@ -11,6 +11,6 @@ const UserController = require('../controller/UserController');
 router.post('/api/users', UserController.createOne);
 
 // READ
-router.get('/api/users/:id', UserController.getOne);
+router.post('/api/users/login', UserController.login);
 
 module.exports = router;

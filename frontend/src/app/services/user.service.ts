@@ -27,4 +27,23 @@ export class UserService {
 		const url = `${config.BASE_API}/users`;
 		return this.http.post<User>(url, user, httpOptions);
 	}
+	
+	// READ
+	getUser(user):Observable<any> {
+		const url = `${config.BASE_API}/users/login`;
+		return this.http.post(url, user, httpOptions);
+	}
+
+	// TOKENS
+	setToken(token: string): void {
+		localStorage.setItem('token', token);
+	}
+
+	getToken() {
+		return localStorage.getItem('token');
+	}
+
+	loggedIn(): boolean {
+		return !!localStorage.getItem('token');
+	}
 }
