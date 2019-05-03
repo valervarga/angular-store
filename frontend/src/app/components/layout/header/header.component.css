@@ -37,3 +37,10 @@
 .navigation__link--active {
 	color: #f6cd61;
 }
+
+/* Navigation for authentication */
+.navigation__auth {
+	position: absolute;
+	right: 30px;
+	bottom: 20px;
+}

@@ -12,6 +12,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { TreatAsNumberDirective } from './directives/treat-as-number.directive';
 import { ProductFormEditComponent } from './components/product-form-edit/product-form-edit.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LandingComponent } from './components/pages/landing/landing.component';
     ProductFormComponent,
     TreatAsNumberDirective,
     ProductFormEditComponent,
-    LandingComponent
+    LandingComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
