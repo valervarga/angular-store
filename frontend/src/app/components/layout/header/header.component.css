@@ -15,3 +15,25 @@
 	text-align: center;
 	text-transform: uppercase;
 }
+
+/* Navigation */
+.navigation {
+	margin: 30px 0 0;
+	color: #f6cd61;
+	text-align: center;
+}
+
+.navigation__link {
+	margin: 0 10px;
+	color: #fff;
+	text-decoration: none;
+	transition: color 300ms linear;
+}
+
+.navigation__link:hover {
+	color: #f6cd61;
+}
+
+.navigation__link--active {
+	color: #f6cd61;
+}

@@ -21,6 +21,10 @@ body {
 	padding-top: 73px;
 }
 
+main {
+	margin-top: 98px;
+}
+
 .app-container {
 	max-width: 1140px;
 	width: 100%;
