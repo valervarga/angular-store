@@ -8,7 +8,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const MongoDB = require('./mongodb');
 // Require routes
-const routes = require('./routes');
+const routes = {
+	product: require('./routes/product'),
+	user: require('./routes/user')
+};
 // Config File
 const config = require('./build.config');
 
@@ -23,7 +26,8 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(cors());
 
-server.use(routes);
+server.use(routes.product);
+server.use(routes.user);
 
 // Start server
 server.listen(PORT, () => { console.log(`The API is listening on port ${PORT}`); });
