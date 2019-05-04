@@ -33,8 +33,6 @@ const UserController = {
 			password: req.body.password
 		};
 
-		console.log('user controller userdata', userData);
-
 		UserService.login(userData)
 			.then(token => res.json({
 				success: true,
