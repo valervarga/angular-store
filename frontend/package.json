@@ -1,6 +1,26 @@
 {
   "name": "frontend",
   "version": "0.0.0",
+  "author": "Valer Varga",
+  "description": "A simple CRUD application with some basic authentication checks using JWT.",
+  "license": "MIT",
+  "keywords": [
+    "mongodb",
+    "express",
+    "angular",
+    "nodejs",
+    "crud",
+    "jsonwebtoken",
+    "authentication"
+  ],
+  "homepage": "https://github.com/valervarga/Angular-Store/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valervarga/Angular-Store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/valervarga/Angular-Store/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
