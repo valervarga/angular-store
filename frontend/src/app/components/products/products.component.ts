@@ -18,15 +18,15 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getAll().subscribe(
-			(result: ProductData) => this.products = result && result.data ? result.data : this.products,
-			(error: any) => {
-				if (error instanceof HttpErrorResponse) {
-					if (error.status === 401) {
-						this.router.navigate(['/login']);
-					}
-				}
-			}
-		);
+      (result: ProductData) => this.products = result && result.data ? result.data : this.products,
+      (error: any) => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.status === 401) {
+            this.router.navigate(['/login']);
+          }
+        }
+      }
+    );
   }
 
   // CREATE
@@ -40,6 +40,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // UPDATE
   updateProduct(product: Product) {
     this.editedProduct = product;
   }

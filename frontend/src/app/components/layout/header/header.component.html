@@ -6,8 +6,10 @@
 		<a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="/store">Store</a>
 
 		<div class="navigation__auth">
-			<a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="/login">Login</a> | 
-			<a class="navigation__link" routerLinkActive="navigation__link--active" routerLink="/register">Register</a>
+			<a class="navigation__link" *ngIf="!userService.isAuthenticated()" routerLinkActive="navigation__link--active" routerLink="/login">Login</a>
+			<span *ngIf="!userService.isAuthenticated()"> | </span>
+			<a class="navigation__link" *ngIf="!userService.isAuthenticated()" routerLinkActive="navigation__link--active" routerLink="/register">Register</a>
+			<a class="navigation__link" *ngIf="userService.isAuthenticated()" (click)="userService.logout()">Logout</a>
 		</div>
 	</nav>
 

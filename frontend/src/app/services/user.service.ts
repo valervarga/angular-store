@@ -6,6 +6,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../models/User';
 
 import config from '../../build.config';
@@ -20,7 +22,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-	constructor(private http: HttpClient) { }
+	constructor(
+		private http: HttpClient,
+		private router: Router,
+		private jwtHelper: JwtHelperService
+	) { }
 
 	// CREATE
 	createOne(user):Observable<User> {
@@ -39,11 +45,20 @@ export class UserService {
 		localStorage.setItem('token', token);
 	}
 
-	getToken() {
+	getToken(): string {
 		return localStorage.getItem('token');
 	}
 
-	loggedIn(): boolean {
-		return !!localStorage.getItem('token');
+	// USER
+	logout() {
+		localStorage.removeItem('token');
+		this.router.navigate(['/login']);
+	}
+
+	isAuthenticated(): boolean {
+		const token = this.getToken();
+
+		// Check whether the token is expired
+		return !this.jwtHelper.isTokenExpired(token);
 	}
 }
