@@ -1,5 +1,5 @@
 # STORE APP
-A simple CRUD application
+A simple CRUD application with some basic authentication checks using JWT.
 
 ## Technologies:
 * Database: MongoDB

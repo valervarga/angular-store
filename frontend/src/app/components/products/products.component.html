@@ -12,4 +12,6 @@
       (updateProduct)="updateProduct($event)"
     ></app-product-item>
   </ul>
+
+  <h3 *ngIf="!products?.length > 0">There are no products in the store.</h3>
 </div>
